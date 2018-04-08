@@ -29,7 +29,20 @@
                     hash: '#data'
                 }
             }
+        },
+        beforeRouteEnter(to, from, next) {
+            // this object hasn't been fully initialized, we cannot acces here (this.link)
+            if (true) {
+                next();
+            } else {
+                next(false);
+            }
+            // next(vm => {
+            //     vm.link;
+            // });
         }
+        // As long as you don't call next(), this component is not loaded, This also means that in this lifecycle hook, 
+        // you can't access your Vue instance, and Data
     }
 
 </script>
